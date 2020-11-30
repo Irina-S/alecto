@@ -1,0 +1,639 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+    }
+}
+
+*, *::before, *:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import "_libs.scss";
+@import "_fonts.scss";
+
+$side-gap:180px;
+$vertical-gap:40px;
+
+$light-gray:#f9f9fa;
+$med-gray:#edeff1;
+$gray:#87949e;
+$deep-gray:#87949e;
+$green:#17daa3;
+$deeper-gray:#65727c;
+$deepest-gray:#87949e;
+
+%title{
+    font-family: 'Raleway';
+    line-height: 41px;
+    font-weight: 100;
+    font-size: 41px;
+    letter-spacing: 1px;  
+}
+
+%subtitle{
+    font-family: 'Roboto';
+    line-height: 11px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+%text{
+    font-size: 18px;
+    font-family: "Roboto";
+    color: $gray;
+    line-height: 1.667;
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+
+%button{
+    outline: none;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    background-color: rgba(0, 182, 203, 0);
+    width: 126px;
+    height: 30px;
+    border-radius:23.5px 23.5px 23.5px 23.5px;
+    font-size: 11px;
+    font-family: "Raleway";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: center;
+    
+}
+
+%arrow{
+    width: 19px;
+    height: 37px;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin-top: -18px;
+}
+
+%slider-content{
+    position: absolute;
+    top:0;
+    left:0;
+    height:0;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.highlighted{
+    &_bold{
+        font-weight: bold;
+    }
+
+    &_green{
+        color:$green;
+    }
+    
+}
+
+.section-title{
+    @extend %title;
+    color:$deeper-gray;
+}
+
+.section-subtitle{
+    @extend %subtitle;
+    color:$gray;
+}
+
+%section-side{
+    flex-basis:50%;
+    padding-top: 38px;
+}
+
+.section-left-side-content{
+    @extend %section-side;
+    
+}
+
+.section-right-side-content{
+    @extend %section-side;
+    padding-left: 8px;
+}
+
+.section-text{
+    @extend %text;
+    line-height: 25px;
+    text-align: left;
+    padding-top: 17px;
+    margin-bottom: 43px;
+}
+
+.section-button{
+    @extend %button;
+    background-color: $green;
+    border-color: $green;
+    color:#fff;
+}
+
+
+.hr{
+    width: 17px;
+    background-color:$green;
+    border-color: $green;
+    border: 1px solid $green;
+    border-bottom-width: 0;
+    margin-top: -7px;
+    margin-bottom: 27px;
+}
+
+.button{
+    @extend %button;
+    transition: all 1s ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.356);
+    }
+}
+
+.logo{
+    width: 74px;
+}
+
+.search-icon{
+    width:15px;
+    height:15px;
+}
+
+
+.slick-list, .slick-track{
+    height: 100%;
+
+    .slick-slide>div{
+        height: 100%;
+    }
+}
+
+.slick-dots{
+    position: absolute;
+    width:100%;
+    text-align:center;
+    bottom:166px;
+    left:0;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    list-style: none;
+
+    li{
+        font-size:0;
+        width:6px;
+        height: 6px;
+        border-radius: 50%;
+        border:1px solid #fff;
+        background-color: rgba(255, 255, 255, 0);
+        margin-right: 10px;
+          
+        &:hover{
+            cursor: pointer;
+        }
+
+        button{
+            display:none
+        }
+        
+    }
+    
+    .slick-active{
+        background-color: #fff;
+    }
+
+}
+
+
+
+.header{
+    height:100vh;
+    width:100%;
+    background-color: rgb(116, 85, 175);
+    position: relative;
+
+
+    &-top{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        padding:37px $side-gap 0;
+        display: flex;
+        justify-content: space-between;
+        z-index: 100;
+
+        .nav-list{
+            display: flex;
+            list-style: none;
+
+            &__item{
+                font-size: 9px;
+                font-family: "Raleway";
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                line-height: 1.714;
+                text-transform: uppercase;
+                margin-left: 44px;
+                margin-top: 4px;
+            }
+        }
+
+    }
+
+
+    &-slider{
+        height: 100%;
+        width: 100%;
+
+        &__item{
+            position:relative;
+        }
+
+        &__item>picture, &__img{
+            height:100%;
+            width:100%;
+        }
+
+        &__text{
+            @extend %slider-content;
+            background-color: rgba(0, 0, 0, 0.55);
+        }
+
+        &__item-title{
+            @extend %title;
+            color:#fff;
+            margin-top: 282px;
+            margin-bottom: 0;
+        }
+
+        &__item-subtitle{
+            @extend %subtitle;
+            color:#fff;
+            margin-top: 27px;
+            font-size: 15px;
+        }
+
+        &__item-button{
+            margin-top: 45px;
+        }
+
+
+        &__left-arrow{
+            @extend %arrow;
+            left:$side-gap;
+
+        }
+
+        &__right-arrow{
+            @extend %arrow;
+            right:$side-gap;
+        }
+    }
+}
+
+.aboutus{
+    padding: $vertical-gap $side-gap 73px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__subtitle{
+        margin-top: 20px;
+    }
+
+    &-items{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 108px;
+        padding-bottom: 67px;
+    }
+
+    &-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        &__img{
+            background-color: $med-gray;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &:nth-child(2) &__img{
+            background-color: $green;
+        }
+
+        &__icon{
+            width:35px;
+        }
+
+        &__title{
+            text-align: center;
+            font-size: 20px;
+            font-family: "Raleway";
+            color: rgb(0, 0, 0);
+            font-weight: 400;    
+            margin-top: 58px;
+            letter-spacing: 2px;       
+        }
+
+        &__text{
+            text-align: center;
+            @extend %text;
+        }
+    }
+}
+
+%section-with-side-content{
+    display: flex;
+    padding: $vertical-gap $side-gap 111px;;
+    align-items: flex-start;
+}
+
+
+.lorem-ipsum{
+    @extend %section-with-side-content;
+    justify-content: flex-end;
+    background-color: $light-gray;
+}
+
+.dolor-sit-amet{
+    @extend %section-with-side-content;
+    justify-content: flex-start;
+}
+
+.opinions{
+    height: 475px;
+
+    &-slider{
+        width:100%;
+        height: 100%;
+
+        &__item{
+            position:relative;
+        }
+
+        &__item>picture, &__img{
+            height:100%;
+            width:100%;
+        }
+
+        &__text{
+            @extend %slider-content;
+        }
+
+        &__item-text>picture, &__item-photo{
+            margin-top: 129px;
+            width: 70px;
+            height: 70px;
+        }
+
+        &__item-title{
+            @extend %title;
+            color:#fff;
+            font-size: 20px;
+            line-height:20px;
+            margin-top:27px;
+        }
+
+        &__item-subtitle{
+            @extend %subtitle;
+            color:#fff;
+            margin-top: 12px;
+        }
+
+        &__left-arrow{
+            @extend %arrow;
+            left:$side-gap;
+        }
+
+        &__right-arrow{
+            @extend %arrow;
+            right:$side-gap;
+        }
+
+        .slick-dots{
+            bottom: 102px;
+        }
+    }
+}
+
+.services{
+    padding: $vertical-gap $side-gap 73px;
+    background-color: $light-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-items{        
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 68px;
+    }
+
+    &-item{
+        flex-basis:50%;
+        flex-shrink: 0;
+        flex-grow: 0;
+        padding-top: 34px;
+
+        &:nth-child(even){
+            padding-left:15px
+        }
+
+        &__img{
+            background-color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 19px;
+        }
+
+        &__icon{
+            width: 20px;
+        }
+
+        &__title{
+            @extend %title;
+            text-align: left;
+            display:inline-block;
+            margin-left: 30px;
+            margin-top: 0;
+        }
+
+        &__text{
+            @extend %text;
+            text-align: left;
+            margin-left: 96px;
+        }
+    }
+}
+
+.team{
+    padding-top: 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-members{
+        width:100%;
+        height:auto;
+        display:flex;
+        flex-wrap: wrap;
+        margin-top: 75px;
+    }
+
+    &-member{
+        width: 20%;
+        background: silver;
+        overflow: hidden; 
+        position: relative;
+
+        &:before {
+            content: "";
+            padding-top: 100%;
+            float: left;
+        }
+
+        &:nth-child(even){
+            background-color: #e4e4e4;
+        }
+
+        &:nth-child(-2n+4){
+            background-color:$light-gray;
+        }
+
+        &:nth-child(-2n+10){
+            background-color: #9f9f9f;
+        }
+
+        &__name{
+            width:100%;
+            height: 100%;
+            background-color: $green;
+            opacity:0;
+            transition: all 0.5s ease;
+            color:#fff;
+            font-family: 'Raleway';
+            font-weight: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        &:hover &__name{
+            opacity:1;
+            cursor: pointer;
+        }
+
+    }
+    
+    
+}
+
+.pricing{
+    background-color: $light-gray;
+    padding-top: 42px;
+    padding-bottom: $vertical-gap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-cards{
+        margin:75px $side-gap 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &-card{
+        flex-basis: 24%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 35px 0px rgba(227, 227, 227, 0.35);
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 35px 0px rgba(227, 227, 227, 0.65);
+
+        &__main{
+            padding-top: 32px;
+            padding-left: 22px;
+            padding-bottom: 37px;
+            border-bottom: #eeeff1 1px solid;
+        }
+
+        &__price{
+            font-size: 39px;
+            font-weight: 200;
+            font-family: "Raleway";
+            color: $green;
+            text-align: left;
+        }
+
+        &__desc{
+            margin-top: 17px;
+            font-size: 12px;
+            font-family: "Roboto";
+            color: $deeper-gray;
+        }
+
+        &__text{
+            color: $deepest-gray;
+            font-family: "Roboto";
+            padding:33px 22px;
+            font-size: 12px;
+            line-height: 33px;
+        }
+
+        &__button{
+            @extend %button;
+            width:100%;
+            background-color: $green;
+            border-radius: 0 0 5px 5px;
+            height: 55px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left:22px;
+            padding-right:22px;
+        }
+
+          
+                    
+    }
+}

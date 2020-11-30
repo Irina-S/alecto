@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="15" viewBox="0 0 28 15">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.5;
+      }
+    </style>
+  </defs>
+  <image id="Down_Arrow" data-name="Down Arrow" class="cls-1" width="28" height="15" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAPCAYAAAD3T6+hAAABJklEQVQ4jbWUOUsDURSFvwxYiYQoVtoJWkQEwUotjAbNX1YQbFQkIiJi476AjZU2FsLIkTMwzJuYlzBzYJq7zMdd3m2kaboIfAHv1KsZYCUBfoBNG+rSFLANPAv4AJwCXWC6BuAEsAtcipXY+AacADsVV9oAesCtP5Kc89WVdiqE7nk3rjJDUghQpWfAVgXt7XgZz/PGIhBX2nd7W4E3Thv+93ExugwovRiqYTcD7/9ac85hWdQgoPTk9o4CbQNzwEHgiQBm0L6fzDDoAqAjsu+3XaphwAx64ZkOgs4Dq27jd+DNKQYoPXq1u74aec0C68AR8BlkjgmU7gzV25q0remTpW38CDJKpOM9AvNPmtMScA0sAzfAfWzyOEBJM9P6q2Ld4jgBv1rdO8YkXTGoAAAAAElFTkSuQmCC"/>
+</svg>
