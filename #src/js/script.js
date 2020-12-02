@@ -18,7 +18,7 @@ testWebP(function (support) {
 });
 
 
-
+// слайдер на первом экране
 $('.header-slider').slick({
     infinite: true,
     slidesToShow: 1,
@@ -28,6 +28,7 @@ $('.header-slider').slick({
     dots:true
   });
 
+//слайдер в разделе opinions 
 $('.opinions-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -35,3 +36,6 @@ $('.opinions-slider').slick({
     nextArrow:'<img src="img/right-arrow.png" alt="" class="opinions-slider__right-arrow">',
     dots:true
 })
+
+// анимация при скролле
+new WOW().init();

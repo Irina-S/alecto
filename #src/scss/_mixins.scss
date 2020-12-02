@@ -1,0 +1,77 @@
+%title{
+    font-family: 'Raleway';
+    line-height: 41px;
+    font-weight: 100;
+    font-size: 41px;
+    letter-spacing: 1px;  
+}
+
+%subtitle{
+    font-family: 'Roboto';
+    line-height: 11px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+%text{
+    font-size: 18px;
+    font-family: "Roboto";
+    color: $gray;
+    line-height: 1.667;
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+%button{
+    outline: none;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    background-color: rgba(0, 182, 203, 0);
+    width: 126px;
+    height: 30px;
+    border-radius:23.5px 23.5px 23.5px 23.5px;
+    font-size: 11px;
+    font-family: "Raleway";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: center;
+    
+}
+
+%arrow{
+    width: 19px;
+    height: 37px;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin-top: -18px;
+}
+
+%slider-content{
+    position: absolute;
+    top:0;
+    left:0;
+    height:0;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+%section-side{
+    flex-basis:50%;
+    padding-top: 38px;
+}
+
+%section-with-side-content{
+    display: flex;
+    padding: $vertical-gap $side-gap 111px;;
+    align-items: flex-start;
+}
