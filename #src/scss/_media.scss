@@ -1,0 +1,84 @@
+@media (max-width:1150px){
+    .header{
+        &-top{
+            padding-left:$side-gap-for-med-screens;
+            padding-right: $side-gap-for-med-screens;
+        }
+
+        &-slider{
+            &__item-title {
+                margin-top: 240px;
+            }
+
+            &__left-arrow, &__right-arrow{
+                margin-top: -50px;
+            }
+
+            &__left-arrow{
+                left:$side-gap-for-med-screens
+            }
+
+            &__right-arrow{
+                right:$side-gap-for-med-screens
+            }
+        }
+    }
+
+    .aboutus, .lorem-ipsum, .dolor-sit-amet, .services{
+        padding-left: $side-gap-for-med-screens;
+        padding-right: $side-gap-for-med-screens;
+    }
+
+    .opinions-slider{
+        &__left-arrow{
+            left:$side-gap-for-med-screens;
+            margin-top: -80px;//в другом слайдере это оъединено вместе с другой стрелкой
+        }
+
+        &__right-arrow{
+            right:$side-gap-for-med-screens;
+            margin-top: -80px;
+        }
+
+        &__item-photo{
+            margin-top: 68px;
+        }
+    }
+}
+
+@media (max-width:950px){
+    .button{
+        height: 33px;
+        font-size: 11px;
+    }
+
+    .nav-list__item{
+        font-size: 10px;
+    }
+
+
+    .header{
+
+        &-slider{
+            // можно задать их также у section-title и section-subtitle
+            &__item-title{
+                line-height: 35px;
+                font-size: 35px;
+            }
+
+            &__item-subtitle{
+                font-size: 13px;
+            }
+        }
+
+        .slick-dots{
+            bottom:100px;
+        }
+    }
+
+    .services{
+        
+    }
+
+    
+}

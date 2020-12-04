@@ -23,6 +23,7 @@ a{
 @import "_fonts.scss";
 @import "_vars.scss";
 @import "_mixins.scss";
+@import "_media.scss";
 
 // МНогократно используемые элементы
 
@@ -239,6 +240,7 @@ a{
 
         &__item{
             position:relative;
+            height: 100%;
         }
 
         &__item>picture, &__img{
@@ -596,6 +598,11 @@ a{
             align-items: center;
             padding-left:22px;
             padding-right:22px;
+
+            &:hover{
+                cursor: pointer;
+                transform:translate(1.2 1.2)
+            }
         }
 
           
